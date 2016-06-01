@@ -23,7 +23,7 @@ class CommentListView extends Component {
   // }
 
   render() {
-    console.log(this.props.propsData);
+    //console.log(this.props.propsData);
     let _data  = this.props.propsData,
         _css = this.props.css;
     

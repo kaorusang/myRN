@@ -6,7 +6,7 @@ import {
 
 var fetchData = function (url, params, self) {
  //console.log(url);
- console.log(params);
+ //console.log(params);
  //console.log(self.state.ReturnCount);
  let thisDataList = [];
  const {
