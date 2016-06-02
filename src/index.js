@@ -14,7 +14,7 @@ import {
 } from '@ctrip/moles-cui';
 
 import HomeView from './views/events/home';
-import DetailView from './views/events/detail';
+//import DetailView from './views/events/detail';
 
 class myRN extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class myRN extends Component {
     return ( <Application routeConfig = {
         {
           '/': HomeView,
-          '/detail/:id': DetailView
+          //'/detail/:id': DetailView
         }
       }
       defaultRoute = '/' />

@@ -1,1 +1,1 @@
-import './src/my_index';
+import './src/index';

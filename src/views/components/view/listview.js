@@ -30,25 +30,25 @@ class CommentListView extends Component {
     if (_data && _data.EventID) {
 
       let IconGender =
-        <Image resizeMode='contain' style={[_css.iconGender,_css.iconMale]} source={require('../../my_events/img/ico_male.png')} />;
+        <Image resizeMode='contain' style={[_css.iconGender,_css.iconMale]} source={require('../../events/img/ico_male.png')} />;
       let IconLike =
-        <Image resizeMode='contain' style={_css.iconLike} source={require('../../my_events/img/ico_like.png')} />;
+        <Image resizeMode='contain' style={_css.iconLike} source={require('../../events/img/ico_like.png')} />;
       let IconApply =
-        <Image resizeMode='contain' style={_css.iconApply} source={require('../../my_events/img/ico_apply.png')} />;
+        <Image resizeMode='contain' style={_css.iconApply} source={require('../../events/img/ico_apply.png')} />;
       let IconReply =
-        <Image resizeMode='contain' style={_css.iconReply} source={require('../../my_events/img/ico_reply.png')} />;
+        <Image resizeMode='contain' style={_css.iconReply} source={require('../../events/img/ico_reply.png')} />;
 
       if (_data.EventUser && _data.EventUser.Gender && _data.EventUser.Gender == 'F') {
         IconGender =
-          <Image resizeMode='contain' style={[_css.iconGender,_css.iconFemale]} source={require('../../my_events/img/ico_female.png')} />
+          <Image resizeMode='contain' style={[_css.iconGender,_css.iconFemale]} source={require('../../events/img/ico_female.png')} />
       }
       if (!!_data.IsInterested) {
         IconLike =
-          <Image resizeMode='contain' style={_css.iconLike} source={require('../../my_events/img/ico_like_active.png')} />
+          <Image resizeMode='contain' style={_css.iconLike} source={require('../../events/img/ico_like_active.png')} />
       }
       if (!!_data.IsSignup) {
         IconApply =
-          <Image resizeMode='contain' style={_css.iconApply} source={require('../../my_events/img/ico_apply_active.png')} />
+          <Image resizeMode='contain' style={_css.iconApply} source={require('../../events/img/ico_apply_active.png')} />
       }
 
       let flag;
@@ -56,7 +56,7 @@ class CommentListView extends Component {
         flag =
         <View style={_css.flag}>
           <View>
-            <Image source={require('../../my_events/img/events_flag_green.png')} style={_css.flagBg} />
+            <Image source={require('../../events/img/events_flag_green.png')} style={_css.flagBg} />
           </View>
           <View style={_css.flagTextView}>
             <Text style={_css.flagText}>我已经</Text><Text style={_css.flagText}>出发啦</Text>
@@ -66,7 +66,7 @@ class CommentListView extends Component {
         flag =
         <View style={_css.flag}>
           <View>
-            <Image source={require('../../my_events/img/events_flag_green.png')} style={_css.flagBg} />
+            <Image source={require('../../events/img/events_flag_green.png')} style={_css.flagBg} />
           </View>
           <View style={_css.flagTextView}>
             <Text style={_css.flagText}>{Moment(_data.StartDate).fromNow(true)}</Text>
@@ -103,7 +103,7 @@ class CommentListView extends Component {
             <View style={_css.route}>
               <Text style={_css.routeSub}>路线：</Text>
               <Text style={_css.routeDest}>{_data.Departure.DistrictName||'太空游游Ctrip星球'}</Text>
-              <Image style={_css.iconGoto} source={require('../../my_events/img/ico_goto.png')}/>
+              <Image style={_css.iconGoto} source={require('../../events/img/ico_goto.png')}/>
               <Text style={_css.routeDest}>{distrctNames||'太空游游Ctrip星球'}</Text>
             </View>
 
