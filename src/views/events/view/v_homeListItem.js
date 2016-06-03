@@ -25,8 +25,9 @@ class HomeListItem extends Component {
   render() {
     //console.log(this.props.propsData);
     let _data  = this.props.propsData,
+        _cont = this.props.controller,
         _css = this.props.css;
-    
+
     if (_data && _data.EventID) {
 
       let IconGender =
@@ -86,7 +87,7 @@ class HomeListItem extends Component {
       let eventPics;
 
       return (
-        <TouchableHighlight style={_css.eventCard} activeOpacity={0.5} underlayColor={'#f8f8f8'} onPress={this._addNewEvent.bind(this)} >
+        <TouchableHighlight style={_css.eventCard} activeOpacity={0.5} underlayColor={'#f8f8f8'} onPress={_cont.prototype._addNewEvent.bind(this)} >
           <View>
             {flag}
             <View style={_css.user}>
@@ -116,15 +117,15 @@ class HomeListItem extends Component {
             </View>
             {eventPics}
             <View style={_css.cardButtons}>
-              <TouchableOpacity onPress={this._interestEvent.bind(this,_data.EventID)} style={_css.cardButton}>
+              <TouchableOpacity onPress={_cont.prototype._interestEvent.bind(this,_data.EventID)} style={_css.cardButton}>
                 {IconLike}
                 <Text style={_css.cardCount}>{_data.InterestedCount}</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={this._signupEvent.bind(this,_data.EventID)} style={[_css.cardButton,_css.cardCenterButton]}>
+              <TouchableOpacity onPress={_cont.prototype._signupEvent.bind(this,_data.EventID)} style={[_css.cardButton,_css.cardCenterButton]}>
                 {IconApply}
                 <Text style={_css.cardCount}>{_data.SignupCount}</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={this._replyEvent.bind(this,_data.EventID)} style={_css.cardButton}>
+              <TouchableOpacity onPress={_cont.prototype._replyEvent.bind(this,_data.EventID)} style={_css.cardButton}>
                 {IconReply}
                 <Text style={_css.cardCount}>{_data.ReplyCount}</Text>
               </TouchableOpacity>
@@ -137,19 +138,6 @@ class HomeListItem extends Component {
     }
   }
 
-  _addNewEvent() {
-    Alert.alert('addNewEvent标题', 'addNewEvent内容', null);
-  }
-  _interestEvent(eventId) {
-    Alert.alert('interestEvent', 'interestEvent' + eventId, null);
-    // this.stopPropagation();
-  }
-  _signupEvent(eventId) {
-    Alert.alert('signupEvent', 'signupEvent' + eventId, null);
-  }
-  _replyEvent(eventId) {
-    Alert.alert('replyEvent', 'replyEvent' + eventId, null);
-  }
 }
 
 

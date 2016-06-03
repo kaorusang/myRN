@@ -4,7 +4,7 @@ import {
   Alert,
 } from 'react-native';
 
-var fetchData = function (url, params, self) {
+var fetchData = (url, params, self) => {
  
   let thisDataList = self.state.dataList;
   let count = self.state.params.StartIndex + self.state.params.ReturnCount ;

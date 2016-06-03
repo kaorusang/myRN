@@ -7,7 +7,7 @@ import {
   Model,
 } from '@ctrip/moles-cui';
 
-var eventModel = function (url, params, self) {
+var eventModel = (url, params, self) => {
 
   let thisDataList = self.state.dataList;
   let count = self.state.params.StartIndex + self.state.params.ReturnCount ;
