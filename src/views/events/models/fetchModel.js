@@ -10,7 +10,7 @@ var fetchData = function (url, params, self) {
  //console.log(self.state.ReturnCount);
   //let thisDataList = [];
   let thisDataList = self.state.dataList;
-  let StartIndex = self.state.postData.StartIndex + self.state.postData.ReturnCount ;
+  let count = self.state.postData.StartIndex + self.state.postData.ReturnCount ;
   //console.log(StartIndex)
  
   const {
@@ -42,13 +42,13 @@ var fetchData = function (url, params, self) {
         responseData.ResponseStatus.Ack == 'Success' && responseData.EventList) {
         if (responseData.TotalCount) {
           self.setState({
-            totalCount: responseData.TotalCount,
+            _totalCount: responseData.TotalCount,
           });
           if (responseData.EventList.length > 0) {
             console.log(responseData.EventList);
             thisDataList=thisDataList.concat(responseData.EventList);
             self.setState({
-              StartIndex: StartIndex,
+              _StartIndex: count,
               dataList: thisDataList,
               dataSource: dataSource.cloneWithRows(thisDataList)
             });

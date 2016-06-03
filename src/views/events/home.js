@@ -20,16 +20,16 @@ import {
   Loading,
 } from '@ctrip/moles-cui';
 
-// 分离的style
+// 分离style
 import HomeStyle from './styleSheet/homeStyle';
 
-// 分离的fetch
+// 分离fetch
 import HomeData from './models/fetchModel';
 
-// 分离的cModel
+// 分离cModel
 //import HomeData from './models/cModel'
 
-// 分离公共View
+// 分离listView
 const CommentListView = require('../components/view/listview');
 
 
@@ -39,9 +39,6 @@ class homeView extends Component {
     super(props);
     this.state = {
 
-      StartIndex: 0,
-      //ReturnCount: 1,
-      
       // 数据
       dataList: [],
       dataSource: new ListView.DataSource({
@@ -50,7 +47,8 @@ class homeView extends Component {
 
       // 页面控制
       isLoading: false,
-      totalCount: 0,
+      _StartIndex: 0,
+      _totalCount: 0,
 
       //数据请求
       postData: {
@@ -92,45 +90,12 @@ class homeView extends Component {
 
   componentDidMount() {
 
-    // var postData = {
-    //   DistrictId: 32,
-    //   DepartureId: "",
-    //   StartDate: "",
-    //   EndDate: "",
-    //   IsOnlyStarted: false,
-    //   AgeRangeList: [],
-    //   EventTagIdList: [],
-    //   Gender: "",
-    //   Keyword: "",
-    //   StartIndex: 0,
-    //   ReturnCount: 5,
-    //   SortType: 2,
-    //   head: {
-    //     cid: "09031081410251560227",
-    //     ctok: "",
-    //     cver: "1.0",
-    //     lang: "01",
-    //     sid: "8888",
-    //     syscode: "09",
-    //     auth: null,
-    //     extension: [{
-    //       name: "protocal",
-    //       value: "http"
-    //     }]
-    //   },
-    //   contentType: "json"
-    // };
-    // var url = 'http://m.ctrip.com/restapi/soa2/10307/GetEventList';
-
-    // var self = this;
-    // var url = this.state.url;
-    // var postData = this.state.postData;
     let {
       url,
       postData,
     } = this.state;
     let self = this;
-    console.log(postData)
+    //console.log(postData)
     HomeData(url, postData, self);
 
   }
@@ -187,19 +152,19 @@ class homeView extends Component {
 
   loadNextpage() {
     let {
-      StartIndex,
-      ReturnCount,
-      totalCount,
       isLoading,
+      _StartIndex,
+      _totalCount,
       url,
       postData,
     } = this.state;
-    //let _StartIndex = this.state.postData.StartIndex;
-
     let self = this;
-    console.log(StartIndex);
+
+    //console.log(postData)
+    //console.log(_StartIndex);
+
     // debugger;
-    if (isLoading || StartIndex > totalCount) {
+    if (isLoading || _StartIndex > _totalCount) {
       return;
     }
     this.setState({
@@ -213,7 +178,7 @@ class homeView extends Component {
         EventTagIdList: [],
         Gender: "",
         Keyword: "",
-        StartIndex: StartIndex,
+        StartIndex: _StartIndex,
         ReturnCount: 2,
         SortType: 1,
         head: {
@@ -230,11 +195,10 @@ class homeView extends Component {
           }
         }
       }
+      //postData.StartIndex : StartIndex,
     });
 
-    
-    
-    console.log(this.state.postData.StartIndex)
+    //console.log(this.state.postData.StartIndex)
     HomeData(url, this.state.postData, self);
   }
 
