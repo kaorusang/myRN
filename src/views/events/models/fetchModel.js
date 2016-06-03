@@ -5,13 +5,9 @@ import {
 } from 'react-native';
 
 var fetchData = function (url, params, self) {
- //console.log(url);
- //console.log(params);
- //console.log(self.state.ReturnCount);
-  //let thisDataList = [];
+ 
   let thisDataList = self.state.dataList;
-  let count = self.state.postData.StartIndex + self.state.postData.ReturnCount ;
-  //console.log(StartIndex)
+  let count = self.state.params.StartIndex + self.state.params.ReturnCount ;
  
   const {
     dataList,
@@ -45,7 +41,7 @@ var fetchData = function (url, params, self) {
             _totalCount: responseData.TotalCount,
           });
           if (responseData.EventList.length > 0) {
-            console.log(responseData.EventList);
+            //console.log(responseData.EventList);
             thisDataList=thisDataList.concat(responseData.EventList);
             self.setState({
               _StartIndex: count,

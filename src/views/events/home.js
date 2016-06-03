@@ -24,13 +24,13 @@ import {
 import HomeStyle from './styleSheet/homeStyle';
 
 // 分离fetch
-import HomeData from './models/fetchModel';
+//import HomeData from './models/fetchModel';
 
 // 分离cModel
-//import HomeData from './models/cModel'
+import HomeData from './models/cModel'
 
 // 分离listView
-const CommentListView = require('../components/view/listview');
+const HomeListItem = require('./view/homeListItem');
 
 
 class homeView extends Component {
@@ -51,7 +51,7 @@ class homeView extends Component {
       _totalCount: 0,
 
       //数据请求
-      postData: {
+      params: {
         DistrictId: 0,
         DepartureId: "",
         StartDate: "",
@@ -62,7 +62,7 @@ class homeView extends Component {
         Gender: "",
         Keyword: "",
         StartIndex: 0,
-        ReturnCount: 3,
+        ReturnCount: 5,
         SortType: 1,
         head: {
           cid: "09031081410251560227",
@@ -92,11 +92,11 @@ class homeView extends Component {
 
     let {
       url,
-      postData,
+      params,
     } = this.state;
     let self = this;
-    //console.log(postData)
-    HomeData(url, postData, self);
+    //console.log(params)
+    HomeData(url, params, self);
 
   }
 
@@ -143,7 +143,7 @@ class homeView extends Component {
      
     if (data && data.EventID) {
       return (
-        <CommentListView propsData={data} css={styles} />
+        <HomeListItem propsData={data} css={styles} />
       )
     } else {
       return;
@@ -156,11 +156,11 @@ class homeView extends Component {
       _StartIndex,
       _totalCount,
       url,
-      postData,
+      params,
     } = this.state;
     let self = this;
 
-    //console.log(postData)
+    //console.log(params)
     //console.log(_StartIndex);
 
     // debugger;
@@ -168,7 +168,7 @@ class homeView extends Component {
       return;
     }
     this.setState({
-      postData: {
+      params: {
         DistrictId: 0,
         DepartureId: "",
         StartDate: "",
@@ -179,7 +179,7 @@ class homeView extends Component {
         Gender: "",
         Keyword: "",
         StartIndex: _StartIndex,
-        ReturnCount: 2,
+        ReturnCount: 5,
         SortType: 1,
         head: {
           cid: "09031081410251560227",
@@ -195,11 +195,11 @@ class homeView extends Component {
           }
         }
       }
-      //postData.StartIndex : StartIndex,
+      //params.StartIndex : StartIndex,
     });
 
-    //console.log(this.state.postData.StartIndex)
-    HomeData(url, this.state.postData, self);
+    //console.log(this.state.params.StartIndex)
+    HomeData(url, this.state.params, self);
   }
 
 }

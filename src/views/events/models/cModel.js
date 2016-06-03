@@ -1,3 +1,5 @@
+'use strict';
+
 import {
   Alert,
 } from 'react-native';
@@ -6,7 +8,10 @@ import {
 } from '@ctrip/moles-cui';
 
 var eventModel = function (url, params, self) {
-  let thisDataList = [];
+
+  let thisDataList = self.state.dataList;
+  let count = self.state.params.StartIndex + self.state.params.ReturnCount ;
+
   const {
     dataList,
     dataSource,
@@ -33,11 +38,13 @@ var eventModel = function (url, params, self) {
       responseData.ResponseStatus.Ack == 'Success' && responseData.EventList) {
       if (responseData.TotalCount) {
         self.setState({
-          totalCount: responseData.TotalCount,
+          _totalCount: responseData.TotalCount,
         });
         if (responseData.EventList.length > 0) {
+          //console.log(responseData.EventList);
           thisDataList=thisDataList.concat(responseData.EventList);
           self.setState({
+            _StartIndex: count,
             dataList: thisDataList,
             dataSource: dataSource.cloneWithRows(thisDataList)
           });
