@@ -4,10 +4,10 @@ import {
   Alert,
 } from 'react-native';
 
-var fetchData = (url, params, self) => {
- 
+var fetchData = (url, params, self, StartIndex) => {
+
   let thisDataList = self.state.dataList;
-  let count = self.state.params.StartIndex + self.state.params.ReturnCount ;
+  let count = StartIndex + self.state.params.ReturnCount;
  
   const {
     dataList,
@@ -37,13 +37,12 @@ var fetchData = (url, params, self) => {
       if (responseData && responseData.ResponseStatus &&
         responseData.ResponseStatus.Ack == 'Success' && responseData.EventList) {
         if (responseData.TotalCount) {
-          self.setState({
-            _totalCount: responseData.TotalCount,
-          });
+          //console.log(responseData.TotalCount);
           if (responseData.EventList.length > 0) {
             //console.log(responseData.EventList);
             thisDataList=thisDataList.concat(responseData.EventList);
             self.setState({
+              _totalCount: responseData.TotalCount,
               _StartIndex: count,
               dataList: thisDataList,
               dataSource: dataSource.cloneWithRows(thisDataList)

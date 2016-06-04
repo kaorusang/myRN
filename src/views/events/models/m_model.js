@@ -7,10 +7,10 @@ import {
   Model,
 } from '@ctrip/moles-cui';
 
-var eventModel = (url, params, self) => {
+var eventModel = (url, params, self, StartIndex) => {
 
   let thisDataList = self.state.dataList;
-  let count = self.state.params.StartIndex + self.state.params.ReturnCount ;
+  let count = StartIndex + self.state.params.ReturnCount;
 
   const {
     dataList,
@@ -37,13 +37,12 @@ var eventModel = (url, params, self) => {
     if (responseData && responseData.ResponseStatus &&
       responseData.ResponseStatus.Ack == 'Success' && responseData.EventList) {
       if (responseData.TotalCount) {
-        self.setState({
-          _totalCount: responseData.TotalCount,
-        });
+        //console.log(responseData.TotalCount);
         if (responseData.EventList.length > 0) {
           //console.log(responseData.EventList);
           thisDataList=thisDataList.concat(responseData.EventList);
           self.setState({
+            _totalCount: responseData.TotalCount,
             _StartIndex: count,
             dataList: thisDataList,
             dataSource: dataSource.cloneWithRows(thisDataList)
@@ -58,7 +57,7 @@ var eventModel = (url, params, self) => {
         }
       } else {
         // 结果为空
-        self.fetchRecommendData();
+        //self.fetchRecommendData();
       }
     } else {
       // 接口错误

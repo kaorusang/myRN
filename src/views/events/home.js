@@ -27,7 +27,7 @@ import HomeStyle from './styleSheet/s_home';
 import HomeData from './models/m_fetch';
 
 // cModel
-//import HomeData from './models/m_model'
+//import HomeData from './models/m_model';
 
 // controller
 import HomeController from './controller/c_home';
@@ -96,10 +96,11 @@ class homeView extends Component {
     let {
       url,
       params,
+      _StartIndex,
     } = this.state;
     let self = this;
 
-    HomeData(url, params, self);
+    HomeData(url, params, self, _StartIndex);
 
   }
 
