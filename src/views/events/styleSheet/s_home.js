@@ -175,12 +175,15 @@ const styles = StyleSheet.create({
   },
   iconLike: {
     width: 17,
+    height: 15,
   },
   iconApply: {
     width: 18.5,
+    height: 18,
   },
   iconReply: {
     width: 18.5,
+    height: 17,
   },
   cardCount: {
     marginLeft: 4,
