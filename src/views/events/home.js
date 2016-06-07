@@ -53,7 +53,7 @@ class homeView extends Component {
       _StartIndex: 0,
       _totalCount: 0,
 
-      //数据请求
+      // 数据请求
       params: {
         DistrictId: 0,
         DepartureId: "",

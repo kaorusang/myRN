@@ -6,26 +6,23 @@ import React, {
   Component,
 } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  Dimensions,
   Animated,
   Easing,
 } from 'react-native';
-
 import {
   Page,
+  Model,
+  Loading,
 } from '@ctrip/moles-cui';
 
 // style
 import OpAnimationStyle from './styleSheet/s_op_animation';
 
 // fetch
-import Data from './models/m_fetch';
+import OpAnimationData from './models/m_op_animation_fetch';
 
 // cModel
-//import Data from './models/m_model';
+//import OpAnimationData from './models/m_model';
 
 // controller
 import OpAnimationController from './controller/c_op_animation';
@@ -40,24 +37,21 @@ class OpAnimation extends Component {
 
     this.state = {
 
+      // 动画
       anim: [0,1,2,3,4,5,6,7,8,9,10,11,12].map(() => new Animated.Value(0)),
 
-      //数据请求
+      // 数据
+      dataList: [],
+      // dataSource: new ListView.DataSource({
+      //   rowHasChanged: (r1, r2) => r1 !== r2
+      // }),
+
+      // 数据请求
       params: {
-        DistrictId: 0,
-        DepartureId: "",
-        StartDate: "",
-        EndDate: "",
-        IsOnlyStarted: false,
-        AgeRangeList: [],
-        EventTagIdList: [],
-        Gender: "",
-        Keyword: "",
-        StartIndex: 0,
-        ReturnCount: 5,
-        SortType: 1,
+        DistrictId: "",
+        contentType: "json",
         head: {
-          cid: "09031081410251560227",
+          cid: "09031118210273857681",
           ctok: "",
           cver: "1.0",
           lang: "01",
@@ -70,6 +64,11 @@ class OpAnimation extends Component {
           }
         }
       },
+
+      url : 'http://m.ctrip.com/restapi/soa2/10307/GetGuessYouLikeDistrict?_fxpcqlniredt=09031118210273857681',
+
+      // 页面控制
+      isLoading: false,
  
       
     }
@@ -77,7 +76,15 @@ class OpAnimation extends Component {
   }
 
   componentWillMount() {
+    let {
+      url,
+      params,
+      isLoading,
+      dataList,
+    } = this.state;
+    let self = this;
 
+    OpAnimationData(url, params, self);
   }
 
   componentDidMount() {
@@ -166,10 +173,8 @@ class OpAnimation extends Component {
           easing: Easing.linear,
         }),
       ]),
-
-
-
     ]).start();
+    
 
   }
 
@@ -177,9 +182,22 @@ class OpAnimation extends Component {
     let data   = this.state.params,
     animations = this.state.anim;
 
+    const {
+      dataList,
+      isLoading,
+    } = this.state;
+
+    if(isLoading && dataList.length<1){
+      return (
+        <Page ref="DetailPage" title='结伴' hasLeftButton={true} hasHome={true} {...this.props}>
+          <Loading visible={true} />
+        </Page>
+      )
+    }
+
     return (
       <Page ref="DetailPage" title='结伴' hasLeftButton={true} hasHome={true} {...this.props}>
-        <OpAnimationView propsData={data} controller={cont} css={styles} animations={animations} />
+        <OpAnimationView propsData={this.state.dataList} controller={cont} css={styles} animations={animations} />
       </Page>
     )
   }

@@ -28,6 +28,8 @@ class HomeListItem extends Component {
         _cont = this.props.controller,
         _css = this.props.css;
 
+    console.log(_data)
+
     if (_data && _data.EventID) {
 
       let IconGender =

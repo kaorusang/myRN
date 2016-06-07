@@ -25,11 +25,16 @@ class OpAnimation extends Component {
 
   render() {
 
-    const _p   = this.props,
-          _a   = this.props.animations;
-    let _data  = _p.propsData,
-        _cont  = _p.controller,
-        _css   = _p.css;
+    const _p    = this.props,
+          _a    = this.props.animations;
+    const _data = _p.propsData,
+          _cont = _p.controller,
+          _css  = _p.css;
+
+    console.log(_data);
+    //console.log(_data.DistrictInfoList[1].DistrictName);
+
+    //console.log(JSON.parse(_data));
 
       return (
         <View style={_css.bg}>
