@@ -11,6 +11,7 @@ import {
   View,
   Dimensions,
   Animated,
+  Easing,
 } from 'react-native';
 
 import {
@@ -39,7 +40,9 @@ class OpAnimation extends Component {
 
     this.state = {
 
-      fadeAnim: new Animated.Value(0),
+      rotateAnim: new Animated.Value(0),
+      opacityAnim: new Animated.Value(0),
+
       //数据请求
       params: {
         DistrictId: 0,
@@ -80,18 +83,36 @@ class OpAnimation extends Component {
 
   componentDidMount() {
 
-    //console.log(this.state.fadeAnim);
-    Animated.timing(          // Uses easing functions
-       this.state.fadeAnim,    // The value to drive
-       {toValue: 1},           // Configuration
-     ).start();
+    Animated.sequence([
+
+      Animated.timing(this.state.rotateAnim, {
+        toValue: 1,
+        duration: 2000,
+        easing: Easing.linear,
+      }),
+
+      Animated.parallel([
+        Animated.timing(this.state.opacityAnim, {
+          toValue: 1,
+          duration: 500,
+          easing: Easing.linear,
+          //delay: 2000,
+        }),
+      ]),
+
+
+
+    ]).start();
+
   }
 
   render() {
     let data = this.state.params;
+    let animations = [this.state.rotateAnim,this.state.opacityAnim];
+
     return (
       <Page ref="DetailPage" title='结伴' hasLeftButton={true} hasHome={true} {...this.props}>
-        <OpAnimationView propsData={data} controller={cont} css={styles} animation={this.state.fadeAnim} />
+        <OpAnimationView propsData={data} controller={cont} css={styles} animations={animations} />
       </Page>
     )
   }
@@ -99,13 +120,11 @@ class OpAnimation extends Component {
 
 }
 
+//let aa = new OpAnimation();
+
+
 const cont = OpAnimationController;
 const styles = OpAnimationStyle;
-const animationStyles = StyleSheet.create({
-  plane: {
-    
-    //opacity:this.state.fadeAnim
-  },
-})
+
 
 module.exports = OpAnimation;

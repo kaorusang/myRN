@@ -28,7 +28,11 @@ class OpAnimation extends Component {
     let _data  = this.props.propsData,
         _cont = this.props.controller,
         _css = this.props.css,
-        _a  = this.props.animation;
+        _a  = this.props.animations[0],
+        _a2 = this.props.animations[1];
+
+        console.log(_a);
+        console.log(_a2)
 
       return (
         <View style={_css.bg}>
@@ -52,12 +56,12 @@ class OpAnimation extends Component {
               <View style={_css.cityView}>
 
                 <TouchableHighlight style={_css.signs} activeOpacity={0.5} underlayColor={'rgba(0,0,0,0)'} onPress={_cont.prototype._addNewEvent.bind(this)} >
-                  <View style={_css.signsView} >
+                  <Animated.View style={[_css.signsView, {opacity: _a2}]} >
                     <View style={_css.signsCircular}>
                       <Text style={_css.signsCircularText}>丽江</Text>
                     </View>
-                    <View style={_css.signsHandle}></View>
-                  </View>
+                    <View style={[_css.signsHandle, _css.signs2Handle]}></View>
+                  </Animated.View>
                 </TouchableHighlight>
 
                 <TouchableHighlight style={[_css.signs, _css.signs2]} activeOpacity={0.5} underlayColor={'rgba(0,0,0,0)'} onPress={_cont.prototype._addNewEvent.bind(this)} >
