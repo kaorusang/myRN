@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: '#666',
     fontWeight: 'bold',
+    letterSpacing: .5,
   },
 
   //earth
@@ -64,9 +65,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   earth: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
     width: 300,
     height: 300,
     resizeMode: 'contain',
+  },
+  plane: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: 300,
+    height: 300,
+    resizeMode: 'contain',
+    //transform: [{rotate:'-180deg'}],
+    //transform: [{rotate: this.state.bounceValue}],
   },
 
   cityView: {

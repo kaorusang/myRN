@@ -3,13 +3,14 @@
  */
 
 import React, {
-  Component
+  Component,
 } from 'react';
 import {
   StyleSheet,
   Text,
   View,
   Dimensions,
+  Animated,
 } from 'react-native';
 
 import {
@@ -37,6 +38,8 @@ class OpAnimation extends Component {
     super(props);
 
     this.state = {
+
+      fadeAnim: new Animated.Value(0),
       //数据请求
       params: {
         DistrictId: 0,
@@ -65,6 +68,8 @@ class OpAnimation extends Component {
           }
         }
       },
+ 
+      
     }
 
   }
@@ -75,13 +80,18 @@ class OpAnimation extends Component {
 
   componentDidMount() {
 
+    //console.log(this.state.fadeAnim);
+    Animated.timing(          // Uses easing functions
+       this.state.fadeAnim,    // The value to drive
+       {toValue: 1},           // Configuration
+     ).start();
   }
 
   render() {
     let data = this.state.params;
     return (
       <Page ref="DetailPage" title='结伴' hasLeftButton={true} hasHome={true} {...this.props}>
-          <OpAnimationView propsData={data} controller={cont} css={styles} />
+        <OpAnimationView propsData={data} controller={cont} css={styles} animation={this.state.fadeAnim} />
       </Page>
     )
   }
@@ -91,5 +101,11 @@ class OpAnimation extends Component {
 
 const cont = OpAnimationController;
 const styles = OpAnimationStyle;
+const animationStyles = StyleSheet.create({
+  plane: {
+    
+    //opacity:this.state.fadeAnim
+  },
+})
 
 module.exports = OpAnimation;

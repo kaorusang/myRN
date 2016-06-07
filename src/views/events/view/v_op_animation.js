@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   Alert,
   Image,
+  Animated,
 } from 'react-native';
 
 import Moment from 'moment';
@@ -26,19 +27,28 @@ class OpAnimation extends Component {
     //console.log(this.props.propsData);
     let _data  = this.props.propsData,
         _cont = this.props.controller,
-        _css = this.props.css;
-
-    
-            //<Image style={_css.iconClose} resizeMode='contain' source={require('../img/ico_close.png')} />
+        _css = this.props.css,
+        _a  = this.props.animation;
 
       return (
         <View style={_css.bg}>
           
           <View style={_css.textView}>
             <Text style={_css.textViewH4}>大家正在结伴去这些地方</Text>
-            <Text style={_css.textViewH2}>你想去哪儿？</Text>
+            <Text style={_css.textViewH2}>  你想去哪儿？</Text>
             <View style={_css.earthView}>
+              <Animated.Image style={[_css.plane, {
+                transform: [{
+                  rotate: _a.interpolate({
+                    inputRange: [0,1],
+                    outputRange: ['180deg','0deg']
+                  })
+                  
+                }],
+                opacity: _a,
+              }]} source={require('../img/img_plane.png')} />
               <Image style={_css.earth} resizeMode='contain' source={require('../img/img_earth.png')} />
+
               <View style={_css.cityView}>
 
                 <TouchableHighlight style={_css.signs} activeOpacity={0.5} underlayColor={'rgba(0,0,0,0)'} onPress={_cont.prototype._addNewEvent.bind(this)} >
