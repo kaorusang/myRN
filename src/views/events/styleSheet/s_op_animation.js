@@ -137,8 +137,8 @@ const styles = StyleSheet.create({
   },
 
   signs2:{
-    left: 4,
-    top: 10,
+    left: 5,
+    top: 12,
     transform: [{rotate:'-45deg'},{scale:1}],
   },
   signs2Handle: {

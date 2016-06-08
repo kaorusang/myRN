@@ -14,9 +14,9 @@ var fetchData = (url, params, self) => {
     isLoading,
   } = self.state;
 
-  self.setState({
-    isLoading: true,
-  });
+  // self.setState({
+  //   isLoading: true,
+  // });
 
   fetch(url, {
  	  method: 'POST',
@@ -30,9 +30,6 @@ var fetchData = (url, params, self) => {
    })
   .then((response) => response.json())
   .then((responseData) => {
-      self.setState({
-        isLoading: false,
-      });
       if (responseData && responseData.ResponseStatus &&
         responseData.ResponseStatus.Ack == 'Success' && responseData.DistrictInfoList) {
         
@@ -42,6 +39,7 @@ var fetchData = (url, params, self) => {
             thisDataList=responseData;
             self.setState({
               dataList: thisDataList,
+              isLoading: false,
               // dataSource: dataSource.cloneWithRows(thisDataList)
             });
 

@@ -31,11 +31,9 @@ class OpAnimation extends Component {
           _cont = _p.controller,
           _css  = _p.css;
 
-    console.log(_data);
-    //console.log(_data.DistrictInfoList[1].DistrictName);
-
-    //console.log(JSON.parse(_data));
-
+    // console.log(_data);
+    if (_data && _data.DistrictInfoList) {
+      
       return (
         <View style={_css.bg}>
           
@@ -57,10 +55,10 @@ class OpAnimation extends Component {
 
               <View style={_css.cityView}>
 
-                <TouchableHighlight style={_css.signs} activeOpacity={0.5} underlayColor={'rgba(0,0,0,0)'} onPress={_cont.prototype._addNewEvent.bind(this)} >
+                <TouchableHighlight style={_css.signs} activeOpacity={0.5} underlayColor={'rgba(0,0,0,0)'} onPress={_cont.prototype._reloadEvent.bind(this, _data.DistrictInfoList[0].DistrictId)} >
                   <View style={_css.signsView} >
                     <Animated.View style={[_css.signsCircular, {opacity: _a[1]}]}>
-                      <Text style={_css.signsCircularText}>丽江</Text>
+                      <Text style={_css.signsCircularText} districtId={_data.DistrictInfoList[0].DistrictId} >{_data.DistrictInfoList[0].DistrictName}</Text>
                     </Animated.View>
                     <Animated.View style={[_css.signsHandle, {opacity: _a[3]}]}></Animated.View>
                   </View>
@@ -69,7 +67,7 @@ class OpAnimation extends Component {
                 <TouchableHighlight style={[_css.signs, _css.signs2]} activeOpacity={0.5} underlayColor={'rgba(0,0,0,0)'} onPress={_cont.prototype._addNewEvent.bind(this)} >
                   <View style={_css.signsView} >
                     <Animated.View style={[_css.signsCircular, _css.signs2Circular, {opacity: _a[2]}]}>
-                      <Text style={[_css.signsCircularText, _css.signs2CircularText]}>厦门</Text>
+                      <Text style={[_css.signsCircularText, _css.signs2CircularText]}>{_data.DistrictInfoList[1].DistrictName}</Text>
                     </Animated.View>
                     <Animated.View style={[_css.signsHandle, _css.signs2Handle, {opacity: _a[3]}]}></Animated.View>
                   </View>
@@ -78,7 +76,7 @@ class OpAnimation extends Component {
                 <TouchableHighlight style={[_css.signs, _css.signs3]} activeOpacity={0.5} underlayColor={'rgba(0,0,0,0)'} onPress={_cont.prototype._addNewEvent.bind(this)} >
                   <View style={_css.signsView} >
                     <Animated.View style={[_css.signsCircular, _css.signs3Circular, {opacity: _a[3]}]}>
-                      <Text style={[_css.signsCircularText, _css.signs3CircularText]}>青岛</Text>
+                      <Text style={[_css.signsCircularText, _css.signs3CircularText]}>{_data.DistrictInfoList[2].DistrictName}</Text>
                     </Animated.View>
                     <Animated.View style={[_css.signsHandle, _css.signs3Handle, {opacity: _a[4]}]}></Animated.View>
                   </View>
@@ -87,7 +85,7 @@ class OpAnimation extends Component {
                 <TouchableHighlight style={[_css.signs, _css.signs4]} activeOpacity={0.5} underlayColor={'rgba(0,0,0,0)'} onPress={_cont.prototype._addNewEvent.bind(this)} >
                   <View style={_css.signsView} >
                     <Animated.View style={[_css.signsCircular, _css.signs4Circular, {opacity: _a[4]}]}>
-                      <Text style={[_css.signsCircularText, _css.signs4CircularText]}>北京</Text>
+                      <Text style={[_css.signsCircularText, _css.signs4CircularText]}>{_data.DistrictInfoList[3].DistrictName}</Text>
                     </Animated.View>
                     <Animated.View style={[_css.signsHandle, _css.signs4Handle, {opacity: _a[5]}]}></Animated.View>
                   </View>
@@ -96,7 +94,7 @@ class OpAnimation extends Component {
                 <TouchableHighlight style={[_css.signs, _css.signs5]} activeOpacity={0.5} underlayColor={'rgba(0,0,0,0)'} onPress={_cont.prototype._addNewEvent.bind(this)} >
                   <View style={_css.signsView} >
                     <Animated.View style={[_css.signsCircular, _css.signs5Circular, {opacity: _a[5]}]}>
-                      <Text style={[_css.signsCircularText, _css.signs5CircularText]}>上海</Text>
+                      <Text style={[_css.signsCircularText, _css.signs5CircularText]}>{_data.DistrictInfoList[4].DistrictName}</Text>
                     </Animated.View>
                     <Animated.View style={[_css.signsHandle, _css.signs5Handle, {opacity: _a[6]}]}></Animated.View>
                   </View>
@@ -105,7 +103,7 @@ class OpAnimation extends Component {
                 <TouchableHighlight style={[_css.signs, _css.signs6]} activeOpacity={0.5} underlayColor={'rgba(0,0,0,0)'} onPress={_cont.prototype._addNewEvent.bind(this)} >
                   <View style={_css.signsView} >
                     <Animated.View style={[_css.signsCircular, _css.signs6Circular, {opacity: _a[6]}]}>
-                      <Text style={[_css.signsCircularText, _css.signs6CircularText]}>青海湖</Text>
+                      <Text style={[_css.signsCircularText, _css.signs6CircularText]}>{_data.DistrictInfoList[5].DistrictName}</Text>
                     </Animated.View>
                     <Animated.View style={[_css.signspoint, {opacity: _a[6]}]}></Animated.View>
                     <Animated.View style={[_css.signsHandle, _css.signs6Handle, {opacity: _a[7]}]}></Animated.View>
@@ -115,7 +113,7 @@ class OpAnimation extends Component {
                 <TouchableHighlight style={[_css.signs, _css.signs7]} activeOpacity={0.5} underlayColor={'rgba(0,0,0,0)'} onPress={_cont.prototype._addNewEvent.bind(this)} >
                   <View style={_css.signsView} >
                     <Animated.View style={[_css.signsCircular, _css.signs7Circular, {opacity: _a[7]}]}>
-                      <Text style={[_css.signsCircularText, _css.signs7CircularText]}>拉萨</Text>
+                      <Text style={[_css.signsCircularText, _css.signs7CircularText]}>{_data.DistrictInfoList[6].DistrictName}</Text>
                     </Animated.View>
                     <Animated.View style={[_css.signspoint, {opacity: _a[7]}]}></Animated.View>
                     <Animated.View style={[_css.signsHandle, _css.signs7Handle, {opacity: _a[8]}]}></Animated.View>
@@ -125,7 +123,7 @@ class OpAnimation extends Component {
                 <TouchableHighlight style={[_css.signs, _css.signs8]} activeOpacity={0.5} underlayColor={'rgba(0,0,0,0)'} onPress={_cont.prototype._addNewEvent.bind(this)} >
                   <View style={_css.signsView} >
                     <Animated.View style={[_css.signsCircular, _css.signs8Circular, {opacity: _a[8]}]}>
-                      <Text style={[_css.signsCircularText, _css.signs8CircularText]}>西藏</Text>
+                      <Text style={[_css.signsCircularText, _css.signs8CircularText]}>{_data.DistrictInfoList[7].DistrictName}</Text>
                     </Animated.View>
                     <Animated.View style={[_css.signspoint, {opacity: _a[8]}]}></Animated.View>
                     <Animated.View style={[_css.signsHandle, _css.signs8Handle, {opacity: _a[9]}]}></Animated.View>
@@ -135,7 +133,7 @@ class OpAnimation extends Component {
                 <TouchableHighlight style={[_css.signs, _css.signs9]} activeOpacity={0.5} underlayColor={'rgba(0,0,0,0)'} onPress={_cont.prototype._addNewEvent.bind(this)} >
                   <View style={_css.signsView} >
                     <Animated.View style={[_css.signsCircular, _css.signs9Circular, {opacity: _a[9]}]}>
-                      <Text style={[_css.signsCircularText, _css.signs9CircularText]}>曼谷</Text>
+                      <Text style={[_css.signsCircularText, _css.signs9CircularText]}>{_data.DistrictInfoList[8].DistrictName}</Text>
                     </Animated.View>
                     <Animated.View style={[_css.signspoint, {opacity: _a[9]}]}></Animated.View>
                     <Animated.View style={[_css.signsHandle, _css.signs9Handle, {opacity: _a[10]}]}></Animated.View>
@@ -145,7 +143,7 @@ class OpAnimation extends Component {
                 <TouchableHighlight style={[_css.signs, _css.signs10]} activeOpacity={0.5} underlayColor={'rgba(0,0,0,0)'} onPress={_cont.prototype._addNewEvent.bind(this)} >
                   <View style={_css.signsView} >
                     <Animated.View style={[_css.signsCircular, _css.signs10Circular, {opacity: _a[10]}]}>
-                      <Text style={[_css.signsCircularText, _css.signs10CircularText]}>首尔</Text>
+                      <Text style={[_css.signsCircularText, _css.signs10CircularText]}>{_data.DistrictInfoList[9].DistrictName}</Text>
                     </Animated.View>
                     <Animated.View style={[_css.signspoint, {opacity: _a[10]}]}></Animated.View>
                     <Animated.View style={[_css.signsHandle, _css.signs10Handle, {opacity: _a[11]}]}></Animated.View>
@@ -175,6 +173,8 @@ class OpAnimation extends Component {
           </TouchableHighlight>
         </View>
       )
+    }
+
   }
 }
 

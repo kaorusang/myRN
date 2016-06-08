@@ -68,7 +68,7 @@ class OpAnimation extends Component {
       url : 'http://m.ctrip.com/restapi/soa2/10307/GetGuessYouLikeDistrict?_fxpcqlniredt=09031118210273857681',
 
       // 页面控制
-      isLoading: false,
+      isLoading: true,
  
       
     }
@@ -178,6 +178,13 @@ class OpAnimation extends Component {
 
   }
 
+  // 不懂
+  componetDidUpdate() {
+
+    console.log('reload');
+
+  }
+
   render() {
     let data   = this.state.params,
     animations = this.state.anim;
@@ -187,19 +194,19 @@ class OpAnimation extends Component {
       isLoading,
     } = this.state;
 
-    if(isLoading && dataList.length<1){
+    if(isLoading){
       return (
         <Page ref="DetailPage" title='结伴' hasLeftButton={true} hasHome={true} {...this.props}>
           <Loading visible={true} />
         </Page>
       )
-    }
-
-    return (
-      <Page ref="DetailPage" title='结伴' hasLeftButton={true} hasHome={true} {...this.props}>
-        <OpAnimationView propsData={this.state.dataList} controller={cont} css={styles} animations={animations} />
-      </Page>
-    )
+    } else {
+      return (
+        <Page ref="DetailPage" title='结伴' hasLeftButton={true} hasHome={true} {...this.props}>
+          <OpAnimationView propsData={this.state.dataList} controller={cont} css={styles} animations={animations} />
+        </Page>
+      )
+    } 
   }
 
 

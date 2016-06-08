@@ -10,6 +10,7 @@ import HomeData from '../models/m_fetch';
 // cModel
 //import HomeData from './models/m_model'
 
+
 class controller {
 
   _addNewEvent() {
@@ -28,6 +29,11 @@ class controller {
 
   _replyEvent(eventId) {
     Alert.alert('replyEvent', 'replyEvent' + eventId, null);
+  }
+
+  _reloadEvent(eventDistrictId){
+    
+    console.log(999)
   }
 
   _loadNextpage(url, params, self) {
