@@ -6,25 +6,31 @@ import {
 
 class Model {
 
-  _fetchAnimData(url, params, self){
+  _fetchAnimData(pointer){
 
-    let thisDataList = self.state.dataList;
-   
-    const {
-      dataList,
-      dataSource,
-      isLoading,
-    } = self.state;
-
-    fetch(url, {
+    fetch('http://m.ctrip.com/restapi/soa2/10307/GetGuessYouLikeDistrict?_fxpcqlniredt=09031118210273857681', {
    	  method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(
-          params
-        )
+        body: JSON.stringify({
+          DistrictId: "",
+          contentType: "json",
+          head: {
+            cid: "09031118210273857681",
+            ctok: "",
+            cver: "1.0",
+            lang: "01",
+            sid: "8888",
+            syscode: "09",
+            auth: null,
+            extension: {
+              name: "protocal",
+              value: "http"
+            }
+          }
+        })
      })
     .then((response) => response.json())
     .then((responseData) => {
@@ -32,10 +38,8 @@ class Model {
           responseData.ResponseStatus.Ack == 'Success' && responseData.DistrictInfoList) {
           
             if (responseData.DistrictInfoList.length > 0) {
-              thisDataList=responseData;
-              self.setState({
-                dataList: thisDataList,
-                //isLoading: false,
+              pointer.setState({
+                dataList: responseData,
                 model: 'showAnim'
               });
 

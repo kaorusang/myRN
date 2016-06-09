@@ -6,26 +6,25 @@ import React, {
 import {
   Text,
   View,
-  TouchableHighlight,
-  TouchableOpacity,
-  Alert,
   Image,
+  TouchableHighlight,
+  Alert,
   Animated,
 } from 'react-native';
 
-import Moment from 'moment';
+// style
+import OpAnimationStyle from '../styleSheet/s_op_animation';
 
-Moment.locale('zh-cn');
+// controller
+import OpAnimationController from '../controller/c_op_animation';
 
 class OpAnimation extends Component {
 
   render() {
-
-    const _p    = this.props,
-          _a    = this.props.animations;
-    const _data = _p.propsData,
-          _cont = _p.controller,
-          _css  = _p.css;
+    const _data = this.props.pointer.state.dataList,
+          _a    = this.props.pointer.state.anim,
+          _cont = OpAnimationController,
+          _css  = OpAnimationStyle;
 
     // console.log(_data);
     if (_data && _data.DistrictInfoList) {
