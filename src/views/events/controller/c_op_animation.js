@@ -5,10 +5,13 @@ import {
 } from 'react-native';
 
 // fetch
-import HomeData from '../models/m_fetch';
+// import HomeData from '../models/m_fetch';
 
 // cModel
 //import HomeData from './models/m_model'
+
+// fetch
+import Models from '../models/m_op_animation_fetch';
 
 
 class controller {
@@ -31,12 +34,23 @@ class controller {
     Alert.alert('replyEvent', 'replyEvent' + eventId, null);
   }
 
-  _reloadEvent(eventDistrictId){
+  // _reloadEvent(eventDistrictId){
     
-    console.log(999)
+  //   console.log(999)
+  // }
+
+  _reloadEventList(eventDistrictId, pointer){
+
+    pointer.setState({
+      districtId: eventDistrictId,
+      model: 'loading',
+      dataList: [],
+    });
+
+    Models.prototype._eventListData(eventDistrictId, pointer);
   }
 
-  _loadNextpage(url, params, self) {
+  _loadNextpage(url, params, pointer) {
     let {
       isLoading,
       _StartIndex,
@@ -75,11 +89,11 @@ class controller {
     // console.log(_StartIndex);
 
     // debugger;
-    if (self.state.isLoading || self.state._StartIndex > self.state._totalCount) {
+    if (pointer.state.isLoading || pointer.state._StartIndex > pointer.state._totalCount) {
       return;
     }
     
-    HomeData(url, _params, self, _params.StartIndex);
+    HomeData(url, _params, pointer, _params.StartIndex);
   }
 
 }

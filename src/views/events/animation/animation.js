@@ -16,9 +16,7 @@ class Animation {
 		let timing = Animated.timing,
         time   = 100;
 
-        console.log('asdasd');
-
-		Animated.sequence([
+        Animated.sequence([
 
 	        timing(pointer.state.anim[0], {
 	          toValue: 1,
