@@ -12,21 +12,23 @@ import {
   Image,
 } from 'react-native';
 
+// style
+import OpAnimationStyle from '../styleSheet/s_home';
+
+// controller
+import Controller from '../controller/c_home';
+
 import Moment from 'moment';
 
 Moment.locale('zh-cn');
 
 class HomeListItem extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  // }
-
   render() {
     //console.log(this.props.propsData);
     let _data  = this.props.propsData,
-        _cont = this.props.controller,
-        _css = this.props.css;
+        _cont = Controller,
+        _css = OpAnimationStyle;
 
     if (_data && _data.EventID) {
 

@@ -13,7 +13,6 @@ import {
   Application
 } from '@ctrip/moles-cui';
 
-import OpAnimatiom from './views/events/op_animation';
 import HomeView from './views/events/home';
 //import DetailView from './views/events/detail';
 
@@ -25,8 +24,7 @@ class myRN extends Component {
   render() {
     return ( <Application routeConfig = {
               {
-                '/': OpAnimatiom,
-                // '/': HomeView,
+                '/': HomeView,
                 //'/detail/:id': DetailView
               }
             }

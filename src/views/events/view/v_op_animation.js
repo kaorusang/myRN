@@ -16,14 +16,14 @@ import {
 import OpAnimationStyle from '../styleSheet/s_op_animation';
 
 // controller
-import OpAnimationController from '../controller/c_op_animation';
+import Controller from '../controller/c_home';
 
 class OpAnimation extends Component {
 
   render() {
     const _data = this.props.pointer.state.dataList,
           _a    = this.props.pointer.state.anim,
-          _cont = OpAnimationController,
+          _cont = Controller,
           _css  = OpAnimationStyle;
 
     // console.log(_data);
