@@ -19,7 +19,7 @@ import {
 import OpAnimationStyle from './styleSheet/s_op_animation';
 
 // fetch
-import OpAnimationData from './models/m_op_animation_fetch';
+import Models from './models/m_op_animation_fetch';
 
 // cModel
 //import OpAnimationData from './models/m_model';
@@ -27,10 +27,20 @@ import OpAnimationData from './models/m_op_animation_fetch';
 // controller
 import OpAnimationController from './controller/c_op_animation';
 
+// animation
+import Anims from './animation/animation';
+
 // OpAnimationView
 const OpAnimationView = require('./view/v_op_animation');
 
+// css
+const styles = OpAnimationStyle;
+
+
+
 class OpAnimation extends Component {
+
+  
 
   constructor(props) {
     super(props);
@@ -42,9 +52,6 @@ class OpAnimation extends Component {
 
       // 数据
       dataList: [],
-      // dataSource: new ListView.DataSource({
-      //   rowHasChanged: (r1, r2) => r1 !== r2
-      // }),
 
       // 数据请求
       params: {
@@ -68,7 +75,7 @@ class OpAnimation extends Component {
       url : 'http://m.ctrip.com/restapi/soa2/10307/GetGuessYouLikeDistrict?_fxpcqlniredt=09031118210273857681',
 
       // 页面控制
-      isLoading: true,
+      model: "loading",
  
       
     }
@@ -76,106 +83,27 @@ class OpAnimation extends Component {
   }
 
   componentWillMount() {
+    
+  }
+
+  componentDidMount() {
+
     let {
       url,
       params,
       isLoading,
       dataList,
+      model,
     } = this.state;
     let self = this;
-
-    OpAnimationData(url, params, self);
-  }
-
-  componentDidMount() {
 
     let timing = Animated.timing,
         time   = 100;
 
-    Animated.sequence([
-
-      timing(this.state.anim[0], {
-        toValue: 1,
-        duration: 1000,
-        easing: Easing.linear,
-      }),
-
-      Animated.parallel([
-        timing(this.state.anim[1], {
-          toValue: 1,
-          duration: time,
-          easing: Easing.linear,
-        }),
-        timing(this.state.anim[2], {
-          toValue: 1,
-          duration: time,
-          delay: time * 2,
-          easing: Easing.linear,
-        }),
-        timing(this.state.anim[3], {
-          toValue: 1,
-          duration: time,
-          delay: time * 3,
-          easing: Easing.linear,
-        }),
-        timing(this.state.anim[4], {
-          toValue: 1,
-          duration: time,
-          delay: time * 4,
-          easing: Easing.linear,
-        }),
-        timing(this.state.anim[5], {
-          toValue: 1,
-          duration: time,
-          delay: time * 5,
-          easing: Easing.linear,
-        }),
-        timing(this.state.anim[6], {
-          toValue: 1,
-          duration: time,
-          delay: time * 6,
-          easing: Easing.linear,
-        }),
-        timing(this.state.anim[7], {
-          toValue: 1,
-          duration: time,
-          delay: time * 7,
-          easing: Easing.linear,
-        }),
-        timing(this.state.anim[8], {
-          toValue: 1,
-          duration: time,
-          delay: time * 8,
-          easing: Easing.linear,
-        }),
-        timing(this.state.anim[9], {
-          toValue: 1,
-          duration: time,
-          delay: time * 9,
-          easing: Easing.linear,
-        }),
-        timing(this.state.anim[10], {
-          toValue: 1,
-          duration: time,
-          delay: time * 10,
-          easing: Easing.linear,
-        }),
-        timing(this.state.anim[11], {
-          toValue: 1,
-          duration: time,
-          delay: time * 11,
-          easing: Easing.linear,
-        }),
-        timing(this.state.anim[12], {
-          toValue: 1,
-          duration: time,
-          delay: time * 12,
-          easing: Easing.linear,
-        }),
-      ]),
-    ]).start();
-    
-
+    if (model == 'loading'){
+      Models.prototype._fetchAnimData(url, params, self);
+      Anims.prototype._earchAnim(this);
+    }
   }
 
   // 不懂
@@ -191,32 +119,27 @@ class OpAnimation extends Component {
 
     const {
       dataList,
-      isLoading,
+      model,
     } = this.state;
 
-    if(isLoading){
+    if(model == "loading"){
       return (
         <Page ref="DetailPage" title='结伴' hasLeftButton={true} hasHome={true} {...this.props}>
           <Loading visible={true} />
         </Page>
       )
-    } else {
+    } else if(model == "showAnim") {
       return (
         <Page ref="DetailPage" title='结伴' hasLeftButton={true} hasHome={true} {...this.props}>
-          <OpAnimationView propsData={this.state.dataList} controller={cont} css={styles} animations={animations} />
+          <OpAnimationView propsData={this.state.dataList} controller={OpAnimationController} css={styles} animations={animations} />
         </Page>
       )
-    } 
+    } else {
+      return (null)
+    }
   }
 
-
 }
-
-//let aa = new OpAnimation();
-
-
-const cont = OpAnimationController;
-const styles = OpAnimationStyle;
 
 
 module.exports = OpAnimation;

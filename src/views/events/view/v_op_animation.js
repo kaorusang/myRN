@@ -19,10 +19,6 @@ Moment.locale('zh-cn');
 
 class OpAnimation extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  // }
-
   render() {
 
     const _p    = this.props,
