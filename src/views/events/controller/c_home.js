@@ -22,8 +22,12 @@ class controller {
     console.log(1);
   };
 
-  _interestEvent(eventId) {
-    Alert.alert('interestEvent', 'interestEvent' + eventId, null);
+  _interestEvent(eventId, pointer) {
+    // pointer.setDefaultValue({
+    //   abc: 20,
+    // })
+    Alert.alert('interestEvent', 'interestEvent' + eventId + ':' + pointer.defaultValue.anim, null);
+    console.log(pointer.defaultValue.anim);
     // this.stopPropagation();
   };
 

@@ -11,7 +11,6 @@ import {
   ListView,
   ScrollView,
   Animated,
-  Easing,
 } from 'react-native';
 import {
   Page,
@@ -45,16 +44,18 @@ const styles = HomeStyle;
 
 class OpAnimation extends Component {
 
+    
   constructor(props) {
     super(props);
+
+    this.defaultValue = {
+      anim: [0,1,2,3,4,5,6,7,8,9,10,11,12].map(() => new Animated.Value(0)),  // web 下 .Value() 找不到一直报错，确认是RN的坑
+    };
 
     this.state = {
 
       // 感觉state就是全局变量, 定义了初始值。用setState方法修改初始值后，重新调用render()。
       // RN会监听state的值有没有变化，有变化刷新视图。
-
-      // 动画，这个地方还需要改，感觉Value(0)是个常量，并没用到setState，由于要传值到拆分的view和animation，作为全局变量临时放这。
-      anim: [0,1,2,3,4,5,6,7,8,9,10,11,12].map(() => new Animated.Value(0)),  // web 下 .Value() 找不到一直报错，怀疑RN的坑
 
       // 数据
       dataList: [],
@@ -70,6 +71,7 @@ class OpAnimation extends Component {
  
     }
 
+
   }
 
   componentWillMount() {
@@ -80,7 +82,7 @@ class OpAnimation extends Component {
 
     if (this.state.model == 'loading'){
       Controller.prototype._fetchAnimData(this);
-      Anims.prototype._earchAnim(this);
+      Anims.prototype._earthAnim(this);
     }
 
   }

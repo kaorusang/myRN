@@ -22,7 +22,7 @@ class OpAnimation extends Component {
 
   render() {
     const _data = this.props.pointer.state.dataList,
-          _a    = this.props.pointer.state.anim,
+          _a    = this.props.pointer.defaultValue.anim,
           _cont = Controller,
           _css  = OpAnimationStyle;
 

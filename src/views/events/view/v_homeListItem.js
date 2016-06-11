@@ -28,7 +28,8 @@ class HomeListItem extends Component {
     //console.log(this.props.propsData);
     let _data  = this.props.propsData,
         _cont = Controller,
-        _css = OpAnimationStyle;
+        _css = OpAnimationStyle,
+        _pointer = this.props.pointer;
 
     if (_data && _data.EventID) {
 
@@ -119,7 +120,7 @@ class HomeListItem extends Component {
             </View>
             {eventPics}
             <View style={_css.cardButtons}>
-              <TouchableOpacity onPress={_cont.prototype._interestEvent.bind(this,_data.EventID)} style={_css.cardButton}>
+              <TouchableOpacity onPress={_cont.prototype._interestEvent.bind(this,_data.EventID, _pointer)} style={_css.cardButton}>
                 {IconLike}
                 <Text style={_css.cardCount}>{_data.InterestedCount}</Text>
               </TouchableOpacity>
