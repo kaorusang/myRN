@@ -1,5 +1,5 @@
-var dirdist      = './src/views/events/dist/', // HTML��?发目��?
-    dirbuild     = './src/views/events/build/', // HTML预览目录
+var dirdist      = './dist/', // HTML��?发目��?
+    dirbuild     = './build/', // HTML预览目录
     dirless      = dirdist + '**/*.less',
     dirsass      = dirdist + '**/*.scss';
 
@@ -90,7 +90,7 @@ gulp.task('connect', function(){
 
 //clean
 gulp.task('clean', function(){
-    return gulp.src('./src/views/events/build', {read: false})
+    return gulp.src('./build', {read: false})
     .pipe(clean());
 });
 

@@ -103,7 +103,7 @@ class HomeListItem extends Component {
                 <Text style={_css.userAgeFrom}>{_data.EventUser.AgeRange} 来自{_data.EventUser.DistrictName}</Text>
               </View>
             </View>
-            
+
             <View style={_css.route}>
               <Text style={_css.routeSub}>路线：</Text>
               <Text style={_css.routeDest}>{_data.Departure.DistrictName||'太空游游Ctrip星球'}</Text>

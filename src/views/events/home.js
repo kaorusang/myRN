@@ -27,7 +27,7 @@ import {
 import HomeStyle from './styleSheet/s_home';
 
 // less to style
-import HomeStyleLess from './build/less/s_home';
+import HomeStyleLess from '../../../build/events/less/s_home';
 
 // models
 import Models from './models/m_home_fetch'; //没有使用cModel,使用原来的fetch。原因是打包后设备上运行取不到数据，怀疑cModel有坑

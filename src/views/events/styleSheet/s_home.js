@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     // lineHeight: 1.5,
   },
 
-  
+
 });
 
 module.exports = styles;
