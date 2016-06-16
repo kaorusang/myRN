@@ -5,12 +5,6 @@ import {
 } from 'react-native';
 
 // fetch
-// import HomeData from '../models/m_fetch';
-
-// cModel
-//import HomeData from './models/m_model'
-
-// fetch
 import Models from '../models/m_home_fetch'; //没有使用cModel,使用原来的fetch。原因是打包后设备上运行取不到数据，怀疑cModel有坑
 //import Models from '../models/m_home_model';
 
@@ -67,7 +61,7 @@ class controller {
     Models.prototype._eventListData(eventDistrictId, pointer);
   }
 
-  
+
 
 }
 

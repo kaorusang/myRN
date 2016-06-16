@@ -26,6 +26,9 @@ import {
 // style
 import HomeStyle from './styleSheet/s_home';
 
+// less to style
+import HomeStyleLess from './build/less/s_home';
+
 // models
 import Models from './models/m_home_fetch'; //没有使用cModel,使用原来的fetch。原因是打包后设备上运行取不到数据，怀疑cModel有坑
 //import Models from './models/m_home_model';
@@ -41,10 +44,11 @@ const OpAnimationView = require('./view/v_op_animation');
 const HomeListItem = require('./view/v_homeListItem');
 
 const styles = HomeStyle;
+const lesss  = HomeStyleLess;
 
 class OpAnimation extends Component {
 
-    
+
   constructor(props) {
     super(props);
 
@@ -68,14 +72,14 @@ class OpAnimation extends Component {
 
       // 页面控制
       model: "loading",
- 
+
     }
 
 
   }
 
   componentWillMount() {
-    
+
   }
 
   componentDidMount() {
@@ -112,11 +116,11 @@ class OpAnimation extends Component {
 
       let mainList;
 
-      mainList = <ListView 
+      mainList = <ListView
           onEndReached = {()=>Controller.prototype._loadNextPage(this.state.districtId, this)}
           dataSource={this.state.dataSource}
           renderRow={this.renderRow.bind(this)}
-          style={styles.listContainer}
+          style={lesss.listContainer}
           initalListSize={2}
           pageSize={1}
           ref='refList'
