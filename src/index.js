@@ -13,7 +13,7 @@ import {
   Application
 } from '@ctrip/moles-cui';
 
-import HomeView from './views/events/home';
+import FlexBox from './views/flexbox/home';
 //import DetailView from './views/events/detail';
 
 class myRN extends Component {
@@ -24,8 +24,7 @@ class myRN extends Component {
   render() {
     return ( <Application routeConfig = {
               {
-                '/': HomeView,
-                //'/detail/:id': DetailView
+                '/': FlexBox,
               }
             }
             defaultRoute = '/' />
