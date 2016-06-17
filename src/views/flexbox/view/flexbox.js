@@ -18,9 +18,9 @@ class flexBox extends Component {
   render() {
 
       return (
-        <ScrollView style={[less.content,less.flexDirection]}>
+        <ScrollView style={[less.flexDirection, less.content ]}>
 
-          <View style={[less.flexDirection, less.flex1, less.justifyContent, less.alignItems, less.flexWrap]}>
+          <View style={[less.flexDirection, less.flex1, less.justifyContent, less.alignItems, less.flexWrap, less.box]}>
 
               <View style={[less.Bg1]}>
                 <Text style={[less.text]}>1</Text>
