@@ -14,6 +14,7 @@ module.exports = StyleSheet.create({
         "flex": 1,
         "flexDirection": "row",
         "position": "relative",
+        "marginBottom": 20,
         "paddingRight": 120 / PixelRatio.get(),
     },
     "youPortrait": {
@@ -37,7 +38,7 @@ module.exports = StyleSheet.create({
         "paddingVertical": 15 / PixelRatio.get(),
         "paddingRight": 20 / PixelRatio.get(),
         "paddingLeft": 40 / PixelRatio.get(),
-        "width": width - (80 / PixelRatio.get()) - (120 / PixelRatio.get()),
+        "width": width - (80 / PixelRatio.get()) - (120 / PixelRatio.get()) - (20 / PixelRatio.get()),
         "height": 200 / PixelRatio.get(),
         //"tintColor": "pink",
     },

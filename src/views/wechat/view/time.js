@@ -18,7 +18,9 @@ class time extends Component {
 
       return (
         <View style={[css.timeContent]}>
-          <Text style={[css.timeText]}>上午12:11</Text>
+          <View style={[css.timeView]}>
+            <Text style={[css.timeText]}>上午12:11</Text>
+          </View>
         </View>
       )
   }

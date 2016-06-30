@@ -19,6 +19,7 @@ import less from '../styleSheet/listview';
 // view
 const Time = require('./time');
 const Your = require('./your');
+const Your2 = require('./your2');
 
 class listview extends Component {
 
@@ -30,6 +31,8 @@ class listview extends Component {
           <Time />
 
           <Your />
+
+          <Your2 />
 
         </ScrollView>
       )

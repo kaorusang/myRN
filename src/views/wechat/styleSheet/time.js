@@ -13,17 +13,17 @@ module.exports = StyleSheet.create({
         "marginBottom": 36 / PixelRatio.get(),
         "height": 34 / PixelRatio.get(),
     },
-    "timeText": {
+    "timeView":{
         "paddingHorizontal": 10 / PixelRatio.get(),
         "paddingVertical": 8 / PixelRatio.get(),
-        "width": 112 / PixelRatio.get(),
-        "height": 34 / PixelRatio.get(),
+        "backgroundColor": "#c7c6c6",
+        "borderRadius": 8 / PixelRatio.get(),
+    },
+    "timeText": {
         "fontSize": 18 / PixelRatio.get(),
         "lineHeight": 18 / PixelRatio.get(),
         "textAlign": "center",
         "textAlignVertical": "center",
         "color": "#fff",
-        "backgroundColor": "#c7c6c6",
-        "borderRadius": 8 / PixelRatio.get(),
     },
 });
