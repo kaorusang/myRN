@@ -12,10 +12,13 @@ import {
   Page,
 } from '@ctrip/moles-cui';
 
-// view
-const FlexBox = require('./view/flexbox');
+// style
+import css from './styleSheet/index';
 
-class Home extends Component {
+// view
+const Listview = require('./view/listview');
+
+class Index extends Component {
 
   constructor(props) {
     super(props);
@@ -35,12 +38,12 @@ class Home extends Component {
   render() {
 
       return (
-        <Page ref="DetailPage" title='flex-box' hasLeftButton={false} hasHome={false} {...this.props}>
-          <FlexBox />
+        <Page style={[css.greyBg]} ref="DetailPage" title='上海微信群(99)' hasLeftButton={true} hasHome={false} {...this.props}>
+          <Listview />
         </Page>
       )
   }
 
 }
 
-module.exports = Home;
+module.exports = Index;

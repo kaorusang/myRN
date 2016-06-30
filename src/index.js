@@ -13,8 +13,7 @@ import {
   Application
 } from '@ctrip/moles-cui';
 
-import FlexBox from './views/flexbox/home';
-//import DetailView from './views/events/detail';
+import Wechat from './views/wechat/index';
 
 class myRN extends Component {
   constructor(props) {
@@ -24,7 +23,7 @@ class myRN extends Component {
   render() {
     return ( <Application routeConfig = {
               {
-                '/': FlexBox,
+                '/': Wechat,
               }
             }
             defaultRoute = '/' />
