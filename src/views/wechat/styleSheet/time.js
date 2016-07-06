@@ -5,6 +5,9 @@ import {
 } from 'react-native';
 
 module.exports = StyleSheet.create({
+    // "box":{
+    //   "flexDirection": "column",
+    // },
     "timeContent": {
         "flex": 1,
         "flexDirection": "row",

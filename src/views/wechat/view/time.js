@@ -17,10 +17,12 @@ class time extends Component {
   render() {
 
       return (
+        <View style={[css.box]}>
         <View style={[css.timeContent]}>
           <View style={[css.timeView]}>
             <Text style={[css.timeText]}>上午12:11</Text>
           </View>
+        </View>
         </View>
       )
   }

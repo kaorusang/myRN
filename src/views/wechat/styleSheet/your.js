@@ -25,8 +25,8 @@ module.exports = StyleSheet.create({
     "youBox": {
         "flex": 1,
         "flexDirection": "column",
-        "alignItems": "stretch",
         "paddingLeft": 10 / PixelRatio.get(),
+        //"width": width - (80 / PixelRatio.get()) - (120 / PixelRatio.get()) - (20 / PixelRatio.get()) - (20 / PixelRatio.get()),
     },
     "youName":{
         "paddingLeft": 20 / PixelRatio.get(),
@@ -35,6 +35,7 @@ module.exports = StyleSheet.create({
         "marginBottom": 10 / PixelRatio.get(),
     },
     "youBubble": {
+        "alignItems":"flex-start",
         "paddingVertical": 15 / PixelRatio.get(),
         "paddingRight": 20 / PixelRatio.get(),
         "paddingLeft": 40 / PixelRatio.get(),

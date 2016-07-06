@@ -14,6 +14,7 @@ import {
 } from '@ctrip/moles-cui';
 
 import Wechat from './views/wechat/index';
+import DetailView from './views/wechat/detail';
 
 class myRN extends Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class myRN extends Component {
     return ( <Application routeConfig = {
               {
                 '/': Wechat,
+                '/detail/:id': DetailView
               }
             }
             defaultRoute = '/' />

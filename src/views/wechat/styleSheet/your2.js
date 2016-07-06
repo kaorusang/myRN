@@ -25,9 +25,8 @@ module.exports = StyleSheet.create({
     "youBox": {
         "flex": 1,
         "flexDirection": "column",
-        //"alignItems": "stretch",
         "paddingLeft": 10 / PixelRatio.get(),
-        //"backgroundColor": "#f00",
+        "width": width - (80 / PixelRatio.get()) - (120 / PixelRatio.get()) - (20 / PixelRatio.get()) - (20 / PixelRatio.get()),
     },
     "youName":{
         "paddingLeft": 20 / PixelRatio.get(),
@@ -37,16 +36,11 @@ module.exports = StyleSheet.create({
     },
     "youBubble": {
         "position": "relative",
-        "height": 200,
-        //"backgroundColor": "#ff0",
-        //"width": width - (80 / PixelRatio.get()) - (120 / PixelRatio.get()) - (20 / PixelRatio.get()) - (20 / PixelRatio.get()),
-
+        "alignItems":"flex-start",
     },
     "youBubbleView":{
         "marginLeft": 10 / PixelRatio.get(),
         "padding": 20 / PixelRatio.get(),
-        //"width": width - (80 / PixelRatio.get()) - (120 / PixelRatio.get()) - (20 / PixelRatio.get()) - (20 / PixelRatio.get()),
-        //"height": 200 / PixelRatio.get(),
         "backgroundColor": "#fff",
         "borderRadius": 10 / PixelRatio.get(),
         "borderWidth": 1 / PixelRatio.get(),

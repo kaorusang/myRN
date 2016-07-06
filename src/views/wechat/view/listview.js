@@ -34,6 +34,8 @@ class listview extends Component {
 
           <Your2 />
 
+          <Your2 />
+
         </ScrollView>
       )
   }

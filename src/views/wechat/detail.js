@@ -7,7 +7,6 @@ import {
   Text,
   View,
   ScrollView,
-  TouchableOpacity,
 } from 'react-native';
 import {
   Page,
@@ -17,9 +16,9 @@ import {
 import css from './styleSheet/index';
 
 // view
-const Listview = require('./view/listview');
+//const Listview = require('./view/listview');
 
-class Index extends Component {
+class Detail extends Component {
 
   constructor(props) {
     super(props);
@@ -41,28 +40,14 @@ class Index extends Component {
       return (
         <Page style={[css.greyBg]} ref="DetailPage" title='上海微信群(99)' hasLeftButton={true} hasHome={false} {...this.props}>
           <View>
-          <Listview />
-          <TouchableOpacity onPress={this.toDetail.bind(this,'123hah')}>
-            <View >
-              <Text>asd</Text>
-            </View>
-          </TouchableOpacity>
+            <Text>{this.props.passProps.ide}</Text>
           </View>
-
         </Page>
       )
   }
 
-  toDetail(eventId) {
-    // Alert.alert('detail', eventId + '', null);
-    this.props.navigator.push({
-      pathname: '/detail/:id',
-      passProps: {
-        ide: eventId
-      }
-    });
-  }
+
 
 }
 
-module.exports = Index;
+module.exports = Detail;
